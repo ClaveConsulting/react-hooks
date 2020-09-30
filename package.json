@@ -14,7 +14,7 @@
     "compile": "lerna run compile",
     "watch": "lerna run watch",
     "prepare": "lerna run prepare",
-    "build-docs": "cd documentation && npm install && npm run export"
+    "build-docs": "cd documentation && npm install && npm run build && npm run export"
   },
   "repository": {
     "type": "git",
