@@ -16,6 +16,12 @@ export default function Index() {
       </Head>
       <h1>useArrayState</h1>
 
+      <a href="https://github.com/ClaveConsulting/react-hooks/tree/master/hooks/use-array-state">
+        Source code
+      </a>
+
+      <h2>Demo</h2>
+
       {items.map(({ done, description }, index) => (
         <div>
           <input

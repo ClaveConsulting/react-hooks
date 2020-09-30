@@ -11,6 +11,12 @@ export default function Index() {
       </Head>
       <h1>useBooleanState</h1>
 
+      <a href="https://github.com/ClaveConsulting/react-hooks/tree/master/hooks/use-boolean-state">
+        Source code
+      </a>
+
+      <h2>Demo</h2>
+
       <button onClick={setOpen.toggle}>Toggle</button>
 
       {isOpen ? (

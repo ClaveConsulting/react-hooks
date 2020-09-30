@@ -13,13 +13,13 @@ export default function Home() {
 
         <ul>
           <li>
-            <Link href="/use-boolean-state">
-              <a>useBooleanState</a>
+            <Link href="/use-array-state">
+              <a>useArrayState</a>
             </Link>
           </li>
           <li>
-            <Link href="/use-array-state">
-              <a>useArrayState</a>
+            <Link href="/use-boolean-state">
+              <a>useBooleanState</a>
             </Link>
           </li>
         </ul>
