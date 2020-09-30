@@ -28,7 +28,7 @@ test("setValue.setFalse() should change the value", () => {
   const { result } = renderHook(() => useBooleanState(true));
   let [value, setValue] = result.current;
 
-  act(() => setValue.setFalse());
+  act(() => setValue.toFalse());
 
   [value, setValue] = result.current;
 
@@ -39,7 +39,7 @@ test("setValue.setTrue() should change the value", () => {
   const { result } = renderHook(() => useBooleanState(false));
   let [value, setValue] = result.current;
 
-  act(() => setValue.setTrue());
+  act(() => setValue.toTrue());
 
   [value, setValue] = result.current;
 

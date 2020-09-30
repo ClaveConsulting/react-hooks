@@ -1,18 +1,23 @@
+# useArrayState
 
-# Typescript module
-
-This is an npm module built with TypeScript. It contains several useful build scripts. You can find the scripts by running the command
-
-```sh
-npm run
+```
+npm install @clave/use-array-state
 ```
 
-* `npm run clean`: clean the output folders `./es` and `./js`.
-* `npm run tslint`: lint the ts files
-* `npm run tsc`: compile the TypeScript in `./ts` into ES2015 in the `./es` folder.
-* `npm run babel`: compile the ES2015 in the `./es` into JavaScript in the `./js` folder.
-* `npm run compile`: run both the tsc and the babel steps.
-* `npm run test`: run unit tests.
-* `npm run watch`: continuously run unit tests.
+## Usage
 
+```jsx
+// Use it instead of useState
+const [items, setItems] = useArrayState([1, 2, 3]);
 
+// items is an array
+
+// setItems behaves like normal
+setItems([9, 8, 7]);
+
+// setItems.append adds the value to the end of the array
+setItems.append(4); // [1, 2, 3, 4]
+
+// setItems.prepend adds the value to the beginning of the array
+setItems.prepend(0); // [0, 1, 2, 3]
+```
