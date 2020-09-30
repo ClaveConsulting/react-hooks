@@ -37,6 +37,11 @@ export default function Home() {
             sans-serif;
         }
 
+        main {
+          max-width: 400px;
+          margin: 1em auto;
+        }
+
         * {
           box-sizing: border-box;
         }
