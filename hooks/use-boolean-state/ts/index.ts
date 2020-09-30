@@ -16,7 +16,7 @@ export default function useBooleanState(
     setValue.toggle = () => setState((x) => !x);
     setValue.setFalse = () => setState(false);
     setValue.setTrue = () => setState(true);
-    return setValue as SetBooleanState;
+    return setValue;
   }, []);
 
   return [state, toggleState];
