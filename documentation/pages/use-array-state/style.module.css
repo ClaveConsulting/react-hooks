@@ -1,0 +1,75 @@
+.cols {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  padding-top: 1em;
+}
+
+.demo {
+  padding: 1em;
+}
+
+.demo > div {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.demo ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.demo li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.demo li span {
+  flex: 1 1 auto;
+}
+
+.demo li button {
+  background: none;
+  border: 1px solid transparent;
+  padding: 0;
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 0;
+  border-radius: 0.75em;
+  cursor: pointer;
+}
+
+.demo li button:hover {
+  color: red;
+  border: 1px solid currentColor;
+  padding: 0;
+  width: 1.5em;
+  height: 1.5em;
+  line-height: 0;
+  border-radius: 0.75em;
+}
+
+.demo form {
+  display: flex;
+  align-items: stretch;
+}
+
+.demo form input {
+  flex: 1 1 auto;
+  border: 1px solid black;
+}
+
+.demo form button {
+  border: 1px solid black;
+  border-left: none;
+}
+
+.demo h2 {
+  text-align: center;
+}

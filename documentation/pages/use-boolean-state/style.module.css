@@ -1,0 +1,13 @@
+.cols {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  padding-top: 1em;
+}
+
+.demo {
+  padding: 1em;
+}
+
+.demo button {
+  margin-bottom: 1em;
+}

@@ -1,0 +1,26 @@
+.container {
+  border: 1px solid #1e1e1e;
+  border-top: none;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #1e1e1e;
+}
+
+.tab {
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0.5em 1em;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.tab.selected {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  outline: none;
+}
