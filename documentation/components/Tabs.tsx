@@ -1,8 +1,10 @@
+import cn from "classnames";
 import { PropsWithChildren, useState } from "react";
 import style from "./Tabs.module.css";
 
 type TabProps = PropsWithChildren<{
   name: string;
+  className?: string;
 }>;
 
 export function Tab({ children }: TabProps) {
@@ -35,7 +37,10 @@ export default function Tabs({
         {children.map((child, index) => (
           <button
             key={index}
-            className={tab + " " + (index === current ? selected : "")}
+            className={cn(tab, {
+              [selected]: index === current,
+              [style.white]: child.props.className === "white",
+            })}
             onClick={() => setCurrent(index)}
           >
             {child.props.name}

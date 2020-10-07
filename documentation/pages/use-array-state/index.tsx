@@ -3,6 +3,7 @@ import Head from "next/head";
 import React from "react";
 import { loadTsAndJs } from "../../build";
 import Code from "../../components/Code";
+import Cols from "../../components/Cols";
 import Layout from "../../components/Layout";
 import Tabs, { Tab } from "../../components/Tabs";
 import Demo from "./Demo";
@@ -60,8 +61,8 @@ export default function Index({ demo, source }: Props) {
       <p></p>
 
       <Tabs>
-        <Tab name="Demo">
-          <div className={style.cols}>
+        <Tab name="Demo" className="white">
+          <Cols>
             <div className={style.demo}>
               <Demo />
             </div>
@@ -73,7 +74,7 @@ export default function Index({ demo, source }: Props) {
                 <Code language="jsx">{demo.js}</Code>
               </Tab>
             </Tabs>
-          </div>
+          </Cols>
         </Tab>
         <Tab name="Source (TS)">
           <Code language="tsx">{source.ts}</Code>
