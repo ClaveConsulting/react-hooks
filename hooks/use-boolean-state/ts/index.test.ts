@@ -24,7 +24,7 @@ test("setValue should change the value", () => {
   expect(value).toBe(true);
 });
 
-test("setValue.setFalse() should change the value", () => {
+test("setValue.toFalse() should change the value", () => {
   const { result } = renderHook(() => useBooleanState(true));
   let [value, setValue] = result.current;
 
@@ -35,7 +35,7 @@ test("setValue.setFalse() should change the value", () => {
   expect(value).toBe(false);
 });
 
-test("setValue.setTrue() should change the value", () => {
+test("setValue.toTrue() should change the value", () => {
   const { result } = renderHook(() => useBooleanState(false));
   let [value, setValue] = result.current;
 

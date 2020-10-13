@@ -5,7 +5,7 @@ export interface SetArrayState<T> extends Dispatch<SetStateAction<T[]>> {
    * Appends a value to the end array
    * @param value The value to append to the array
    */
-  append(value: T): void;
+  append(...values: T[]): void;
 
   /**
    * Inserts a value into the array at a specific position
@@ -13,13 +13,13 @@ export interface SetArrayState<T> extends Dispatch<SetStateAction<T[]>> {
    * @param value The value to insert into the array
    */
 
-  insertAt(index: number, value: T): void;
+  insertAt(index: number, ...values: T[]): void;
 
   /**
    * Prepends a vaule to the beginning of the array
    * @param value The vaule to prepend to the array
    */
-  prepend(value: T): void;
+  prepend(...values: T[]): void;
 
   /**
    * Removes the specific value from the array
@@ -28,7 +28,7 @@ export interface SetArrayState<T> extends Dispatch<SetStateAction<T[]>> {
    * matching elements from the array
    * @param value The value to remove
    */
-  remove(value: T): void;
+  remove(...values: T[]): void;
 
   /**
    * Removes the item at the specific index from the array
@@ -76,28 +76,28 @@ export default function useArrayState<T>(
   const setArrayState = useMemo<SetArrayState<T>>(() => {
     const setValue = (v: SetStateAction<T[]>) => setState(v);
 
-    setValue.append = (value: T) => {
-      setState((existing) => [...existing, value]);
+    setValue.append = (...values: T[]) => {
+      setState((existing) => [...existing, ...values]);
     };
 
-    setValue.insertAt = (index: number, value: T) => {
+    setValue.insertAt = (index: number, ...values: T[]) => {
       setState((existing) => {
         const changed = [...existing];
-        changed.splice(index, 0, value);
+        changed.splice(index, 0, ...values);
         return changed;
       });
     };
 
-    setValue.prepend = (value: T) => {
-      setState((existing) => [value, ...existing]);
+    setValue.prepend = (...values: T[]) => {
+      setState((existing) => [...values, ...existing]);
     };
 
     setValue.removeAt = (index: number) => {
       setState((existing) => existing.filter((_, i) => i !== index));
     };
 
-    setValue.remove = (value: T) => {
-      setState((existing) => existing.filter((v) => v !== value));
+    setValue.remove = (...values: T[]) => {
+      setState((existing) => existing.filter((v) => !values.includes(v)));
     };
 
     setValue.editAt = (index: number, edit: (old: T) => T) => {

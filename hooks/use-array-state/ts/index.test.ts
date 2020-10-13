@@ -28,6 +28,16 @@ test("value can be appended", () => {
   expect(value).toEqual(["a", "b", "c", "x"]);
 });
 
+test("several values can be appended", () => {
+  const { result } = renderHook(() => useArrayState<string>(["a", "b", "c"]));
+
+  let [value, setValue] = result.current;
+  act(() => setValue.append("x", "y", "z"));
+
+  [value, setValue] = result.current;
+  expect(value).toEqual(["a", "b", "c", "x", "y", "z"]);
+});
+
 test("value can be prepended", () => {
   const { result } = renderHook(() => useArrayState<string>(["a", "b", "c"]));
 

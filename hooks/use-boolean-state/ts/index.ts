@@ -11,7 +11,7 @@ export default function useBooleanState(
 ): [boolean, SetBooleanState] {
   const [state, setState] = useState<boolean>(initial);
 
-  const toggleState = useMemo(() => {
+  const setBooleanState = useMemo(() => {
     const setValue = (v: SetStateAction<boolean>) => setState(v);
     setValue.toggle = () => setState((x) => !x);
     setValue.toFalse = () => setState(false);
@@ -19,5 +19,5 @@ export default function useBooleanState(
     return setValue;
   }, []);
 
-  return [state, toggleState];
+  return [state, setBooleanState];
 }

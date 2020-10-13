@@ -1,18 +1,28 @@
+# useBooleanState
 
-# Typescript module
+[Documentation](https://claveconsulting.github.io/react-hooks/use-boolean-state)
 
-This is an npm module built with TypeScript. It contains several useful build scripts. You can find the scripts by running the command
-
-```sh
-npm run
+```
+npm install @clave/use-boolean-state
 ```
 
-* `npm run clean`: clean the output folders `./es` and `./js`.
-* `npm run tslint`: lint the ts files
-* `npm run tsc`: compile the TypeScript in `./ts` into ES2015 in the `./es` folder.
-* `npm run babel`: compile the ES2015 in the `./es` into JavaScript in the `./js` folder.
-* `npm run compile`: run both the tsc and the babel steps.
-* `npm run test`: run unit tests.
-* `npm run watch`: continuously run unit tests.
+## Usage
 
+```jsx
+// useBooleanState instead of useState
+const [checked, setChecked] = useBooleanState(); //defaults to false
 
+console.log(checked); // false
+
+// setChecked behaves like normal
+setChecked(true); // true
+
+// Set the value to true
+setChecked.toTrue(); // true
+
+// Set the value to false
+setChecked.toFalse(); // false
+
+// Set the value to the opposite
+setChecked.toggle(); // true -> false, false -> true
+```
