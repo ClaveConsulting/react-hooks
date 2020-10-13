@@ -3,13 +3,13 @@ import useBooleanState from "./index";
 
 test("initial value by default is false", () => {
   const { result } = renderHook(() => useBooleanState());
-  const [value, setValue] = result.current;
+  const [value] = result.current;
   expect(value).toBe(false);
 });
 
 test("initial value can be set", () => {
   const { result } = renderHook(() => useBooleanState(true));
-  const [value, setValue] = result.current;
+  const [value] = result.current;
   expect(value).toBe(true);
 });
 

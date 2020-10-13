@@ -4,7 +4,7 @@ import useArrayState from "./index";
 test("initial value can be set", () => {
   const { result } = renderHook(() => useArrayState([]));
 
-  const [value, setValue] = result.current;
+  const [value] = result.current;
   expect(value).toEqual([]);
 });
 

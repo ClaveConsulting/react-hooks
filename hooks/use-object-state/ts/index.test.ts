@@ -10,7 +10,7 @@ test("initial value can be set", () => {
       aged: 36,
     })
   );
-  const [value, setValue] = result.current;
+  const [value] = result.current;
   expect(value).toEqual({
     name: "Ada Lovelace",
     born: "December 10, 1815",

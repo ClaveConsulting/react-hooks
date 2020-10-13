@@ -6,7 +6,7 @@ export interface SetObjectState<T> extends Dispatch<SetStateAction<T>> {
   edit<K extends keyof T>(key: K, edit: (v: T[K]) => T[K]): void;
 }
 
-export default function useObjectState<T extends {}>(
+export default function useObjectState<T extends Record<string, unknown>>(
   initial: T | (() => T)
 ): [T, SetObjectState<T>] {
   const [state, setState] = useState<T>(initial);
