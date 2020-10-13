@@ -2,7 +2,14 @@ import Link, { LinkProps } from "next/link";
 import { useRouter } from "next/router";
 import React, { ReactElement } from "react";
 
-export default function Sidebar() {
+export interface Props {
+  readonly links: {
+    readonly name: string;
+    readonly path: string;
+  }[];
+}
+
+export default function Sidebar({ links }: Props) {
   return (
     <nav>
       <Link href="/">
@@ -10,12 +17,11 @@ export default function Sidebar() {
           <h2>Hooks</h2>
         </a>
       </Link>
-      <MenuLink href="/use-array-state">
-        <a>useArrayState</a>
-      </MenuLink>
-      <MenuLink href="/use-boolean-state">
-        <a>useBooleanState</a>
-      </MenuLink>
+      {links.map(({ name, path }) => (
+        <MenuLink key={path} href={`/${path}`}>
+          <a>{name}</a>
+        </MenuLink>
+      ))}
     </nav>
   );
 }
@@ -24,7 +30,7 @@ function MenuLink({ href, children }: LinkProps & { children: ReactElement }) {
   const router = useRouter();
 
   let className = children.props.className || "";
-  if (router.pathname === href) {
+  if (router.asPath === href) {
     className = `${className} selected`;
   }
 

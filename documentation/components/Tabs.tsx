@@ -4,7 +4,7 @@ import style from "./Tabs.module.css";
 
 type TabProps = PropsWithChildren<{
   name: string;
-  className?: string;
+  theme?: "white";
 }>;
 
 export function Tab({ children }: TabProps) {
@@ -39,7 +39,7 @@ export default function Tabs({
             key={index}
             className={cn(tab, {
               [selected]: index === current,
-              [style.white]: child.props.className === "white",
+              [style.white]: child.props.theme === "white",
             })}
             onClick={() => setCurrent(index)}
           >

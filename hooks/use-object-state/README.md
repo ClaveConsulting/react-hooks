@@ -2,7 +2,7 @@
 
 [Documentation](https://claveconsulting.github.io/react-hooks/use-object-state)
 
-```
+```shell
 npm install @clave/use-object-state
 ```
 

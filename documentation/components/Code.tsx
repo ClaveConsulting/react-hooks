@@ -13,6 +13,7 @@ export default function Code({
     <>
       <SyntaxHighlighter
         style={vscDarkPlus}
+        useInlineStyles
         customStyle={{ margin: "0" }}
         language={language}
         showLineNumbers

@@ -2,7 +2,7 @@
 
 [Documentation](https://claveconsulting.github.io/react-hooks/use-boolean-state)
 
-```
+```shell
 npm install @clave/use-boolean-state
 ```
 

@@ -2,7 +2,7 @@
 
 [Documentation](https://claveconsulting.github.io/react-hooks/use-array-state)
 
-```
+```shell
 npm install @clave/use-array-state
 ```
 

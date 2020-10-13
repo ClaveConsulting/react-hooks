@@ -1,10 +1,10 @@
 import React, { PropsWithChildren } from "react";
-import Sidebar from "./Sidebar";
+import Sidebar, { Props } from "./Sidebar";
 
-export default function Layout({ children }: PropsWithChildren<any>) {
+export default function Layout({ children, links }: PropsWithChildren<Props>) {
   return (
     <div id="layout">
-      <Sidebar />
+      <Sidebar links={links} />
       <main>{children}</main>
     </div>
   );

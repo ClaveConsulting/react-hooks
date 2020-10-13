@@ -1,5 +1,7 @@
+import * as React from "react";
 import { FormEvent, useCallback, useState } from "react";
 import useArrayState from "use-array-state";
+import style from "./style.module.css";
 
 interface TodoItem {
   readonly description: string;
@@ -19,7 +21,7 @@ export default function Demo() {
   );
 
   return (
-    <div>
+    <div className={style.demo}>
       <h2>todos</h2>
       <ul>
         {items.map(({ done, description }, index) => (

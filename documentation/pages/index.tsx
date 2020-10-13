@@ -1,9 +1,28 @@
+import { GetStaticProps } from "next";
 import Head from "next/head";
 import Layout from "../components/Layout";
+import getLinks from "../lib/getLinks";
 
-export default function Home() {
+export interface Props {
+  readonly links: {
+    readonly name: string;
+    readonly path: string;
+  }[];
+}
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const props = {
+    links: await getLinks("../hooks"),
+  };
+
+  return {
+    props,
+  };
+};
+
+export default function Home({ links }: Props) {
   return (
-    <Layout>
+    <Layout links={links}>
       <Head>
         <title>use react hooks</title>
       </Head>
