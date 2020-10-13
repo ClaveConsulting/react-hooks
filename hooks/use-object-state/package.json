@@ -1,0 +1,24 @@
+{
+  "name": "use-object-state",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js/index.js",
+  "scripts": {
+    "test": "jest",
+    "clean": "rimraf ./es ./js",
+    "tslint": "tslint -p tsconfig.json",
+    "tsc": "tsc",
+    "babel": "babel --source-maps -d js es",
+    "compile": "npm run tsc && npm run babel",
+    "watch": "jest -w",
+    "prepare": "npm run clean && npm run tslint && npm run test && npm run compile"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "@babel/runtime": "^7.11.2"
+  },
+  "types": "es/index.d.ts",
+  "module": "es/index.js"
+}
