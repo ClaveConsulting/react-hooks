@@ -1,4 +1,5 @@
 {
   "packages": ["hooks/*"],
-  "version": "independent"
+  "version": "independent",
+  "ignoreChanges": ["demo/**", "jest.config.js", "**/*.md"]
 }
