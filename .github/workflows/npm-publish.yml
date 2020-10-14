@@ -23,6 +23,8 @@ jobs:
     - run: git config --local user.email "npm@clave.no"
     - run: cat $NPM_CONFIG_USERCONFIG
     - run: npm whoami
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     - run: npm ci --ignore-scripts
     - run: npm run bootstrap
