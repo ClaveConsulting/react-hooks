@@ -14,8 +14,8 @@
     "test": "lerna run test --stream",
     "prepare": "lerna run prepare --stream",
     "clean-docs": "cd documentation && npm run clean",
-    "build-docs": "cd documentation && npm install && npm run build && npm run export",
-    "watch-docs": "npm run compile && cd documentation && npm install && npm run dev",
+    "build-docs": "cd documentation && npm run build && npm run export",
+    "watch-docs": "npm run compile && cd documentation && npm run dev",
     "lerna": "lerna"
   },
   "repository": {
