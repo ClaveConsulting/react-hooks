@@ -8,7 +8,7 @@
     "clean": "rimraf ./es ./js",
     "lint": "eslint . --ext .ts",
     "tsc": "tsc",
-    "babel": "babel --source-maps -d js es",
+    "babel": "babel --root-mode upward --source-maps -d js es",
     "compile": "npm run tsc && npm run babel",
     "prepare": "npm run clean && npm run lint && npm run test && npm run compile"
   },
