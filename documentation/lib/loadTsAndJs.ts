@@ -11,7 +11,7 @@ function transpile(tsSource: string) {
   }).outputText;
 }
 
-export async function loadTsAndJs(path: string) {
+export default async function loadTsAndJs(path: string) {
   const ts = await fs.readFile(path, "utf-8");
 
   const js = transpile(ts);

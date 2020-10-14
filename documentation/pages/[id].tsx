@@ -2,17 +2,17 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import React from "react";
-import { loadTsAndJs } from "../build";
 import Code from "../components/Code";
 import Cols from "../components/Cols";
 import Layout from "../components/Layout";
 import Tabs, { Tab } from "../components/Tabs";
 import getLinks from "../lib/getLinks";
+import loadTsAndJs from "../lib/loadTsAndJs";
 import markdown from "../lib/markdown";
 import toPrettyName from "../lib/toPrettyName";
 
 export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
-  var links = await getLinks("../hooks");
+  const links = await getLinks("../hooks");
   return {
     paths: links.map((p) => ({ params: { id: p.path } })),
     fallback: false,

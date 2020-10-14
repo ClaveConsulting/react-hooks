@@ -9,6 +9,7 @@ module.exports = {
     //make sure we can import demo from the packages
     config.module.rules[0].include.push(path.join(__dirname, "../hooks"));
 
+    //make sure importing css modules works for the demos
     config.module.rules[1].oneOf[2].issuer = {
       or: [
         __dirname,
@@ -16,7 +17,6 @@ module.exports = {
       ],
       not: [/node_modules/]
     }
-    console.dir(config.module.rules[1].oneOf, { depth: 5 });
 
     return config;
   }
