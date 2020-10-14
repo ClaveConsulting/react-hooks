@@ -9,6 +9,8 @@ npm install @clave/use-array-state
 ## Usage
 
 ```jsx
+import useArrayState from "@clave/use-array-state";
+
 // useArrayState instead of useState
 const [items, setItems] = useArrayState(["a", "b", "c"]);
 

@@ -9,6 +9,8 @@ npm install @clave/use-object-state
 ## Usage
 
 ```jsx
+import useObjectState from "@clave/use-object-state";
+
 // useObjectState instead of useState
 const [value, setValue] = useObjectState({
   name: "Ada Lovelace",

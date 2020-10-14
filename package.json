@@ -16,7 +16,7 @@
     "prepare": "lerna run prepare --stream",
     "clean-docs": "cd documentation && npm run clean",
     "build-docs": "cd documentation && npm run build && npm run export",
-    "ci-publish": "lerna publish --conventional-commits --yes",
+    "ci-publish": "lerna publish --conventional-commits --create-release github --yes",
     "lerna": "lerna"
   },
   "repository": {

@@ -9,6 +9,8 @@ npm install @clave/use-boolean-state
 ## Usage
 
 ```jsx
+import useBooleanState from "@clave/use-boolean-state";
+
 // useBooleanState instead of useState
 const [checked, setChecked] = useBooleanState(); //defaults to false
 
