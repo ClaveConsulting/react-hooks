@@ -17,13 +17,12 @@ jobs:
       with:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
-        always-auth: true
 
     - run: git config --local user.name "ci-bot"
     - run: git config --local user.email "npm@clave.no"
 
     - run: npm ci --ignore-scripts
-    - run: npm run bootstrap --ignore-scripts
+    - run: npm run bootstrap
     - run: npm run ci-publish
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
