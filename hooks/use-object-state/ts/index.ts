@@ -17,7 +17,7 @@ export default function useObjectState<T extends Record<string, unknown>>(
     /**
      * Sets the property of key to value in the object
      * @param key The object key to set the value of
-     * @param value The value
+     * @param value The value to set
      */
     setValue.set = <K extends keyof T>(key: K, value: T[K]) =>
       setState((x) => ({ ...x, [key]: value }));
