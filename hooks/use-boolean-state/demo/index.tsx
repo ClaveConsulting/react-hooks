@@ -1,5 +1,5 @@
+import useBooleanState from "@clave/use-boolean-state";
 import * as React from "react";
-import useBooleanState from "use-boolean-state";
 import style from "./style.module.css";
 
 export default function Demo() {

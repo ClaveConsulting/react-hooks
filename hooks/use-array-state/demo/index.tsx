@@ -1,6 +1,6 @@
+import useArrayState from "@clave/use-array-state";
 import * as React from "react";
 import { FormEvent, useCallback, useState } from "react";
-import useArrayState from "use-array-state";
 import style from "./style.module.css";
 
 interface TodoItem {

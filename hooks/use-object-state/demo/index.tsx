@@ -1,5 +1,5 @@
+import useObjectState from "@clave/use-object-state";
 import * as React from "react";
-import useObjectState from "use-object-state";
 import style from "./style.module.css";
 
 export default function Demo() {

@@ -1,5 +1,5 @@
 {
-  "name": "use-object-state",
+  "name": "@clave/use-object-state",
   "version": "0.0.1",
   "description": "",
   "main": "js/index.js",
@@ -19,5 +19,8 @@
     "@babel/runtime": "^7.11.2"
   },
   "types": "es/index.d.ts",
-  "module": "es/index.js"
+  "module": "es/index.js",
+  "publishConfig": {
+    "access": "public"
+  }
 }
