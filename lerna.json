@@ -1,5 +1,13 @@
 {
   "packages": ["hooks/*"],
   "version": "independent",
-  "ignoreChanges": ["demo/**", "jest.config.js", "**/*.md"]
+  "ignoreChanges": ["demo/**", "jest.config.js", "**/*.md"],
+  "command": {
+    "version": {
+      "message": "ci(release): publish %s"
+    },
+    "publish": {
+      "message": "ci(release): publish %s"
+    }
+  }
 }

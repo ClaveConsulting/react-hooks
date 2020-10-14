@@ -26,6 +26,16 @@ There are `npm run` scripts defined in the root `package.json` file for all of y
 
   You probably only need to run this once, or if you create a new hook.
 
+- `npm run watch-docs`: Build the docs for local development.
+
+  Use this if you want to make changes to the documentation.
+
+- `npm run compile`: First tsc then babel.
+
+  This is the same as running tsc and babel, one after the other.
+
+Here are the rest of the npm scripts, in case you need them.
+
 - `npm run clean`: Clean built files in each hook's /es and /js.
 
   This might be useful before running compile.
@@ -37,10 +47,6 @@ There are `npm run` scripts defined in the root `package.json` file for all of y
 - `npm run babel`: Build the /js files from the /es code.
 
   This is the second step in compiling the project, and relies on the output of `npm run tsc`. Configured in `.babelrc`.
-
-- `npm run compile`: First tsc then babel.
-
-  This is the same as running tsc and babel, one after the other.
 
 - `npm run lint`: Lints the TypeScript for each hook.
 
@@ -62,10 +68,24 @@ There are `npm run` scripts defined in the root `package.json` file for all of y
 
   This is run by the github action, you probably don't have to run this yourself.
 
-- `npm run watch-docs`: Build the docs for local development.
+- `npm run lerna -- [command] [args]`: Run lerna commands.
 
-  Use this if you want to make changes to the documentation.
+  Useful if you don't have lerna installed globally. Supply commands and args after --.
 
-- `npm run lerna [command] [args]`: Run lerna commands.
+- `npm run ci-publish`: Run by ci to publish the packages
 
-  Useful if you don't have lerna installed globally. Supply commands and args
+  This is run by github actions to publish new versions automatically
+
+### Commit messages
+
+For automatic versioning to work correctly the [angular commit convention](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular#angular-convention) is used. In short, your commit message should look like this:
+
+```
+feat(use-hook-name): heading describing the change
+
+longer message describing what has been done, if you want
+
+footer, for example 'BREAKING CHANGE: something has been broken' or 'Closes #28'
+```
+
+`feat` indicates that a new feature has been added, and will result in a **minor version** bump. To make a **major version** bump, add `BREAKING CHANGE: <description>` at the bottom of the commit message. All other commits will be interpreted as **patch version** bumps.

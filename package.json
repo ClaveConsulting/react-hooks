@@ -6,16 +6,17 @@
   "main": "index.js",
   "scripts": {
     "bootstrap": "lerna bootstrap",
+    "watch-docs": "npm run compile && cd documentation && npm run dev",
+    "compile": "lerna run compile --stream",
     "clean": "lerna run clean",
     "tsc": "lerna run tsc",
     "babel": "lerna run babel --stream",
-    "compile": "lerna run compile --stream",
     "lint": "lerna run lint --stream",
     "test": "lerna run test --stream",
     "prepare": "lerna run prepare --stream",
     "clean-docs": "cd documentation && npm run clean",
     "build-docs": "cd documentation && npm run build && npm run export",
-    "watch-docs": "npm run compile && cd documentation && npm run dev",
+    "ci-publish": "lerna publish --conventional-commits --yes",
     "lerna": "lerna"
   },
   "repository": {
