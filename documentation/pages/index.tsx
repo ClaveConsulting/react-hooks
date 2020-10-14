@@ -31,6 +31,10 @@ export default function Home({ links }: Props) {
         <h1>use react hooks</h1>
 
         <p>Here is a collection of useful react hooks</p>
+
+        <a href="https://github.com/ClaveConsulting/react-hooks">
+          Source code on github
+        </a>
       </main>
     </Layout>
   );
