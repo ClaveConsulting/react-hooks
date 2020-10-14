@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -20,6 +20,7 @@ jobs:
 
     - run: git config --local user.name "ci-bot"
     - run: git config --local user.email "npm@clave.no"
+    - run: npm whoami
 
     - run: npm ci --ignore-scripts
     - run: npm run bootstrap

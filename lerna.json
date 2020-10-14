@@ -4,10 +4,10 @@
   "ignoreChanges": ["demo/**", "jest.config.js", "**/*.md"],
   "command": {
     "version": {
-      "message": "ci(release): publish %s"
+      "message": "ci(release): published"
     },
     "publish": {
-      "message": "ci(release): publish %s"
+      "message": "ci(release): published"
     }
   }
 }
