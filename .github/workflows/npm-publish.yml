@@ -18,7 +18,10 @@ jobs:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
 
-    - run: npm ci
+    - run: git config --local user.name "ci-bot"
+    - run: git config --local user.email "npm@clave.no"
+
+    - run: npm ci --ignore-scripts
     - run: npm run bootstrap
     - run: npm run ci-publish
       env:
