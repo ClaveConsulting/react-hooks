@@ -104,10 +104,10 @@ export default function Index({
           </p>
           <Tabs>
             <Tab name="TypeScript">
-              <Code language="tsx">{source.ts}</Code>
+              <Code language="ts">{source.ts}</Code>
             </Tab>
             <Tab name="JavaScript">
-              <Code language="jsx">{source.js}</Code>
+              <Code language="js">{source.js}</Code>
             </Tab>
           </Tabs>
         </Tab>
