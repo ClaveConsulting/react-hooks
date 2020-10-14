@@ -6,6 +6,8 @@ export default function Demo() {
   const [state, setState] = useObjectState({
     active: true,
     secondCheckbox: false,
+    number: 0,
+    text: "",
   });
 
   return (
@@ -27,6 +29,19 @@ export default function Demo() {
           }
         />
         The second checbox
+      </label>
+      <label>
+        Number and text
+        <input
+          type="number"
+          onChange={(e) =>
+            setState.with({
+              number: e.currentTarget.valueAsNumber,
+              text: e.currentTarget.value,
+            })
+          }
+          value={state.number}
+        />
       </label>
       <pre>{JSON.stringify(state, null, 2)}</pre>
     </div>

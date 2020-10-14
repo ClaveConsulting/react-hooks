@@ -1,7 +1,7 @@
 import { SetStateAction, useMemo, useState } from "react";
 
 /**
- * Create a state for an object with useful array manipulation methods
+ * Create a state for an object with useful manipulation methods
  *
  * @param initial The initial object or factory function
  * @returns A pair of state and setState

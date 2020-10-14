@@ -23,7 +23,7 @@ jobs:
     - run: git config --local user.email "npm@clave.no"
 
     - run: npm ci --ignore-scripts
-    - run: npm run bootstrap
+    - run: npm run bootstrap --ignore-scripts
     - run: npm run ci-publish
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
