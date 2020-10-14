@@ -121,3 +121,30 @@ test("setValue.edit should update the key with the value", () => {
     aged: 36,
   });
 });
+
+test("setValue.with should include values that are undefined", () => {
+  const { result } = renderHook(() =>
+    useObjectState({
+      name: "Ada Lovelace",
+      born: "December 10, 1815",
+      died: "November 27, 1852",
+      aged: 36,
+    })
+  );
+  let [value, setValue] = result.current;
+
+  act(() =>
+    setValue.with({
+      name: undefined,
+    })
+  );
+
+  [value, setValue] = result.current;
+
+  expect(value).toEqual({
+    name: undefined,
+    born: "December 10, 1815",
+    died: "November 27, 1852",
+    aged: 36,
+  });
+});
