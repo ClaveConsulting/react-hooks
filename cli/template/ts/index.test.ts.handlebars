@@ -1,10 +1,10 @@
-import { act, renderHook } from "@testing-library/react-hooks";
+import { renderHook } from "@testing-library/react-hooks";
 import {{name}} from "./index";
 
 test("test something here", () => {
   const { result } = renderHook(() =>
     {{name}}()
   );
-  const [value] = result.current;
-  expect(value).toBe(/* write something here */);
+  const value = result.current;
+  expect(value).toBe("{{name}}");
 });
