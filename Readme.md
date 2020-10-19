@@ -34,6 +34,10 @@ There are `npm run` scripts defined in the root `package.json` file for all of y
 
   This is the same as running tsc and babel, one after the other.
 
+- `npm run create-hook`: Create a new hook.
+
+  This uses a bunch of templates to scaffold up the new hook in the hooks folder.
+
 Here are the rest of the npm scripts, in case you need them.
 
 - `npm run clean`: Clean built files in each hook's /es and /js.
