@@ -73,6 +73,7 @@
   "dependencies": {
     "@clave/use-array-state": "file:hooks/use-array-state",
     "@clave/use-boolean-state": "file:hooks/use-boolean-state",
+    "@clave/use-debounce": "file:hooks/use-debounce",
     "@clave/use-object-state": "file:hooks/use-object-state"
   }
 }

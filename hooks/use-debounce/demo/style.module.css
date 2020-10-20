@@ -1,0 +1,11 @@
+.demo {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.demo li {
+  font-size: small;
+  list-style-type: circle;
+}
