@@ -1,10 +1,14 @@
 # useArrayState
 
+> Make it easier to work with stateful arrays
+
 [Documentation](https://claveconsulting.github.io/react-hooks/use-array-state)
 
 ```shell
 npm install @clave/use-array-state
 ```
+
+The goal of this hook is to make it easier to manipulate array state. For example, if you want to add a new item to an array you can call `setState.append(value)`.
 
 ## Usage
 

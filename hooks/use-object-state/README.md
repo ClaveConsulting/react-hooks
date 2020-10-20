@@ -1,10 +1,14 @@
 # useObjectState
 
+> Make it easier to work with state of objects
+
 [Documentation](https://claveconsulting.github.io/react-hooks/use-object-state)
 
 ```shell
 npm install @clave/use-object-state
 ```
+
+The goal of this hook is to make it easier to manipulate objects stored in state. There are methods available to set, edit or append/change several properties oy the object stored in state. The manipulation methods are available on the `setState` method, for example `setState.set('key', value)`.
 
 ## Usage
 
