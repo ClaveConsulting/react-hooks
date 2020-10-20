@@ -1,6 +1,6 @@
 {
   "name": "@clave/use-boolean-state",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "",
   "main": "js/index.js",
   "scripts": {
