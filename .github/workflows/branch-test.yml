@@ -19,5 +19,13 @@ jobs:
         registry-url: 'https://registry.npmjs.org'
 
     - run: npm ci --ignore-scripts
-    - run: npm run bootstrap
+    - run: npm run bootstrap --ignore-scripts
+    - run: npm run lint
+    - run: npm run compile
     - run: npm run ci-test
+    - run: npm run ci-version
+
+    - uses: IgnusG/jest-report-action@v2.3.3
+      if: always()
+      with:
+        access-token: ${{ secrets.GITHUB_TOKEN }}

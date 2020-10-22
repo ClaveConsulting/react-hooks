@@ -17,7 +17,8 @@
     "clean-docs": "cd documentation && npm run clean",
     "build-docs": "cd documentation && npm run build && npm run export",
     "ci-publish": "lerna publish --conventional-commits --create-release github --yes",
-    "ci-test": "lerna version --conventional-commits --no-git-tag-version --no-push --yes",
+    "ci-version": "lerna version --conventional-commits --no-git-tag-version --no-push --yes",
+    "ci-test": "jest",
     "lerna": "lerna",
     "create-hook": "ts-node -P cli/tsconfig.json cli/create-hook.ts && npm install"
   },
@@ -53,6 +54,7 @@
     "esm": "^3.2.25",
     "glob-promise": "^3.4.0",
     "jest": "^26.4.2",
+    "jest-junit": "^12.0.0",
     "lerna": "^3.22.1",
     "mkdirp": "^1.0.4",
     "mustache": "^4.0.1",
@@ -76,5 +78,10 @@
     "@clave/use-boolean-state": "file:hooks/use-boolean-state",
     "@clave/use-debounce": "file:hooks/use-debounce",
     "@clave/use-object-state": "file:hooks/use-object-state"
+  },
+  "jest-junit": {
+    "suiteNameTemplate": "{filepath}",
+    "classNameTemplate": "{classname}",
+    "titleTemplate": "{title}"
   }
 }
