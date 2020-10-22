@@ -76,9 +76,13 @@ Here are the rest of the npm scripts, in case you need them.
 
   Useful if you don't have lerna installed globally. Supply commands and args after --.
 
-- `npm run ci-publish`: Run by ci to publish the packages
+- `npm run ci-publish`: Run by ci to publish the packages.
 
-  This is run by github actions to publish new versions automatically
+  This is run by github actions to publish new versions automatically.
+
+- `npm run ci-test`: Run by ci when a branch is pushed.
+
+  This is run by github actions to test in a branch.
 
 ### Commit messages
 
