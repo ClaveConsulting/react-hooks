@@ -50,6 +50,8 @@ setItems.remove("b", "a"); // ["c"]
 // Remove the value at specified index
 setItems.remove(1); // ["a", "c"]
 
+setItems.removeWhere((v) => v === "b"); // ["a", "c"]
+
 // Edit the value at a specified index
 setItems.editAt(1, (v) => v.ToUpperCase()); // ["a", "B", "c"]
 

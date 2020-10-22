@@ -78,6 +78,16 @@ test("value can be removedAt", () => {
   expect(value).toEqual(["a", "c"]);
 });
 
+test("value can be removedWhere", () => {
+  const { result } = renderHook(() => useArrayState<string>(["a", "b", "c"]));
+
+  let [value, setValue] = result.current;
+  act(() => setValue.removeWhere(v => v === "b"));
+
+  [value, setValue] = result.current;
+  expect(value).toEqual(["a", "c"]);
+});
+
 test("value can be replacedAt", () => {
   const { result } = renderHook(() => useArrayState<string>(["a", "b", "c"]));
 

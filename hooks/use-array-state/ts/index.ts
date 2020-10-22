@@ -61,6 +61,15 @@ export default function useArrayState<T>(initial: T[] | (() => T[])) {
     };
 
     /**
+     * Removes the items that match the filter test
+     *
+     * @param filter Test for which items to remove
+     */
+    setValue.removeWhere = (filter: (value: T) => boolean) => {
+      setState((existing) => existing.filter((v) => !filter(v)));
+    };
+
+    /**
      * Edits the element at a specific position in the array.
      * The second parameter is a function that receives the existing item
      * and returns the new item
