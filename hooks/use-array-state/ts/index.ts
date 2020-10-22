@@ -56,7 +56,7 @@ export default function useArrayState<T>(initial: T[] | (() => T[])) {
      * matching elements from the array
      * @param values One or more values to remove
      */
-    setValue.remove = (...values: T[]) => {
+    setValue.remove =(...values: T[]) => {
       setState((existing) => existing.filter((v) => !values.includes(v)));
     };
 
