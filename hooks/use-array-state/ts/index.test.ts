@@ -99,7 +99,7 @@ test("value can be replaced", () => {
 });
 
 test("value can be edited", () => {
-  const { result} = renderHook(() => useArrayState<string>(["a", "b", "c"]));
+  const { result } = renderHook(() => useArrayState<string>(["a", "b", "c"]));
 
   let [value, setValue] = result.current;
   act(() => setValue.editAt(1, (v) => v.toUpperCase()));

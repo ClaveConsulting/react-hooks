@@ -21,8 +21,9 @@ jobs:
     - run: npm ci --ignore-scripts
     - run: npm run bootstrap --ignore-scripts
     - run: npm run ci-lint
-    - run: npm run compile
     - run: npm run ci-test
+      if: always()
+    - run: npm run compile
     - run: npm run ci-version
 
     - uses: IgnusG/jest-report-action@v2.3.3
