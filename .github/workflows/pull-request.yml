@@ -12,25 +12,40 @@ jobs:
       with:
         fetch-depth: 0
 
+    # This is needed because pull-requests don't run on branches
+    # so we create a new branch to work on
     - run: git switch -c "pull-request"
+
+    # This is needed so that ci-version can create git tags
+    - name: Set git user
+      run: |
+        git config --local user.name "ci-bot"
+        git config --local user.email "npm@clave.no"
 
     - uses: actions/setup-node@v1
       with:
         node-version: '12.x'
         registry-url: 'https://registry.npmjs.org'
 
+    # Install npm packages
     - run: npm ci --ignore-scripts
+
+    # All of this should probably be one npm script
     - run: npm run bootstrap --ignore-scripts
     - run: npm run ci-lint
     - run: npm run ci-test
     - run: npm run compile
     - run: npm run ci-version
+
+    # Look at the tags that have been generated
     - name: Get new versions
       id: versions
       run: |
         echo 'releases<<EOF' >> $GITHUB_ENV
         git tag --points-at HEAD >> $GITHUB_ENV
         echo 'EOF' >> $GITHUB_ENV
+
+    # Create a comment in the pull request using the tags created
     - uses: marocchino/sticky-pull-request-comment@v1
       if: steps.versions.outputs.releases != ''
       with:
