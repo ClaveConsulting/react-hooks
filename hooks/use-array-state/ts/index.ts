@@ -102,3 +102,7 @@ export default function useArrayState<T>(initial: T[] | (() => T[])) {
 
   return [state, setArrayState] as const;
 }
+
+export function dummy(){
+  return 'dummy';
+}
