@@ -44,8 +44,8 @@ jobs:
           path: ${{ github.workspace }}/documentation/.next/cache
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}
 
-      - run: npm install
-
+      - run: npm ci
+      - run: npm run compile
       - run: npm run build-docs
 
       - name: Deploy
