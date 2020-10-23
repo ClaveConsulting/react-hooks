@@ -17,7 +17,7 @@ export default function useArrayState<T>(initial: T[] | (() => T[])) {
      * @param values One or more values to append to the array
      */
     setValue.append = (...values: T[]) => {
-      setState((existing) => [...existing, ...values]);
+      setState(append(...values));
     };
 
     /**
@@ -26,11 +26,7 @@ export default function useArrayState<T>(initial: T[] | (() => T[])) {
      * @param values One or more values to insert into the array
      */
     setValue.insertAt = (index: number, ...values: T[]) => {
-      setState((existing) => {
-        const changed = [...existing];
-        changed.splice(index, 0, ...values);
-        return changed;
-      });
+      setState(insertAt(index, ...values));
     };
 
     /**
@@ -38,7 +34,7 @@ export default function useArrayState<T>(initial: T[] | (() => T[])) {
      * @param values One or more values to prepend to the array
      */
     setValue.prepend = (...values: T[]) => {
-      setState((existing) => [...values, ...existing]);
+      setState(prepend(...values));
     };
 
     /**
@@ -46,7 +42,7 @@ export default function useArrayState<T>(initial: T[] | (() => T[])) {
      * @param index The position of the item to remove
      */
     setValue.removeAt = (index: number) => {
-      setState((existing) => existing.filter((_, i) => i !== index));
+      setState(removeAt(index));
     };
 
     /**
@@ -57,7 +53,7 @@ export default function useArrayState<T>(initial: T[] | (() => T[])) {
      * @param values One or more values to remove
      */
     setValue.remove = (...values: T[]) => {
-      setState((existing) => existing.filter((v) => !values.includes(v)));
+      setState(remove(values));
     };
 
     /**
@@ -66,7 +62,7 @@ export default function useArrayState<T>(initial: T[] | (() => T[])) {
      * @param filter Test for which items to remove
      */
     setValue.removeWhere = (filter: (value: T) => boolean) => {
-      setState((existing) => existing.filter((v) => !filter(v)));
+      setState(removeWhere(filter));
     };
 
     /**
@@ -78,9 +74,7 @@ export default function useArrayState<T>(initial: T[] | (() => T[])) {
      * @param edit The lambda function used to edit the item
      */
     setValue.editAt = (index: number, edit: (old: T) => T) => {
-      setState((existing) =>
-        existing.map((entry, i) => (i === index ? edit(entry) : entry))
-      );
+      setState(editAt(index, edit));
     };
 
     /**
@@ -89,9 +83,7 @@ export default function useArrayState<T>(initial: T[] | (() => T[])) {
      * @param value The new value to replace the old value with
      */
     setValue.replaceAt = (index: number, value: T) => {
-      setState((existing) =>
-        existing.map((entry, i) => (i === index ? value : entry))
-      );
+      setState(replaceAt(index, value));
     };
 
     /**
@@ -101,8 +93,7 @@ export default function useArrayState<T>(initial: T[] | (() => T[])) {
      * @param newValue The new value to be used instead of the old value
      */
     setValue.replace = (oldValue: T, newValue: T) => {
-      setState((existing) =>
-        existing.map((entry) => (entry === oldValue ? newValue : entry))
+      setState(replace(oldValue, newValue)
       );
     };
 
@@ -110,4 +101,44 @@ export default function useArrayState<T>(initial: T[] | (() => T[])) {
   }, []);
 
   return [state, setArrayState] as const;
+}
+
+export function append<T>(...values: T[]): SetStateAction<T[]> {
+  return (existing) => [...existing, ...values];
+}
+
+export function insertAt<T>(index: number, ...values: T[]): SetStateAction<T[]> {
+  return (existing) => {
+    const changed = [...existing];
+    changed.splice(index, 0, ...values);
+    return changed;
+  };
+}
+
+export function prepend<T>(...values: T[]): SetStateAction<T[]> {
+  return (existing) => [...values, ...existing];
+}
+
+export function removeAt<T>(index: number): SetStateAction<T[]> {
+  return (existing) => existing.filter((_, i) => i !== index);
+}
+
+export function remove<T>(values: T[]): SetStateAction<T[]> {
+  return (existing) => existing.filter((v) => !values.includes(v));
+}
+
+export function removeWhere<T>(filter: (value: T) => boolean): SetStateAction<T[]> {
+  return (existing) => existing.filter((v) => !filter(v));
+}
+
+export function editAt<T>(index: number, edit: (old: T) => T): SetStateAction<T[]> {
+  return (existing) => existing.map((entry, i) => (i === index ? edit(entry) : entry));
+}
+
+export function replaceAt<T>(index: number, value: T): SetStateAction<T[]> {
+  return (existing) => existing.map((entry, i) => (i === index ? value : entry));
+}
+
+export function replace<T>(oldValue: T, newValue: T): SetStateAction<T[]> {
+  return (existing) => existing.map((entry) => (entry === oldValue ? newValue : entry));
 }

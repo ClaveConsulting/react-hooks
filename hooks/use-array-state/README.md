@@ -61,3 +61,29 @@ setItems.replaceAt(1, "x"); // ["a", "x", "c"]
 // Replace a value with another value
 setItems.replace("b", "x"); // ["a", "x", "c"]
 ```
+
+### Alternative usage
+
+If you worry about the size of the package with all these, potentially unnecessary, methods, then there is an alternative way to use it. All of the methods are exported from the module, so you can import each one individually and use only the ones you need:
+
+```jsx
+import { useState } from "react";
+import { append, removeAt } from "@clave/use-array-state";
+
+export default function MyComponent(){
+  const [items, setItems] = useState([]);
+
+  return (
+    <button onClick={() => setItems(append("some value"))}>
+    {items.map((value, index) => (
+      <div>
+        {value}
+        <button onClick={() => setItems(removeAt(index))}>
+      </div>
+    ))}
+  )
+}
+
+```
+
+That is, instead of using `setItems.something(args)` you can call `setItems(something(args))` if you add `import { something } from "@clave/use-array-state";`. This will let the tree-shaker exclude all unused methods.
