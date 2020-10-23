@@ -7,7 +7,7 @@
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended"
   ],
-  "ignorePatterns": ["es/", "js/", "*.config.js"],
+  "ignorePatterns": ["es/", "js/", "out/", "*.config.js", "node_modules/"],
   "rules": {
     "@typescript-eslint/explicit-module-boundary-types": "off"
   }

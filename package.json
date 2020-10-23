@@ -17,6 +17,9 @@
     "clean-docs": "cd documentation && npm run clean",
     "build-docs": "cd documentation && npm run build && npm run export",
     "ci-publish": "lerna publish --conventional-commits --create-release github --yes",
+    "ci-version": "lerna version --conventional-commits --no-git-tag-version --no-push --yes",
+    "ci-test": "jest --ci",
+    "ci-lint": "eslint . --ext .ts",
     "lerna": "lerna",
     "create-hook": "ts-node -P cli/tsconfig.json cli/create-hook.ts && npm install"
   },
