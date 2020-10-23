@@ -13,7 +13,7 @@ jobs:
         fetch-depth: 0
 
     - name: Prepare repository
-      run: git checkout "${GITHUB_REF:11}"
+      run: git switch -c "pull-request"
 
     - uses: actions/setup-node@v1
       with:
