@@ -105,5 +105,5 @@ test("value can be edited", () => {
   act(() => setValue.editAt(1, (v) => v.toUpperCase()));
 
   [value, setValue] = result.current;
-  expect(value).toEqual(["a", "b", "c"]);
+  expect(value).toEqual(["a", "B", "c"]);
 });
