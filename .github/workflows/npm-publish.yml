@@ -13,9 +13,6 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Prepare repository
-      run: git checkout "${GITHUB_REF:11}"
-
     - uses: actions/setup-node@v1
       with:
         node-version: '12.x'
