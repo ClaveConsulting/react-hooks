@@ -1,4 +1,4 @@
-name: Publish to npm
+name: Publish
 
 on:
   push:
@@ -21,9 +21,35 @@ jobs:
     - run: git config --local user.name "ci-bot"
     - run: git config --local user.email "npm@clave.no"
 
-    - run: npm ci --ignore-scripts
+    - run: npm ci
     - run: npm run bootstrap
     - run: npm run ci-publish
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  gh-pages:
+    needs: publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+          registry-url: "https://registry.npmjs.org"
+
+      - uses: actions/cache@v2
+        with:
+          path: ${{ github.workspace }}/documentation/.next/cache
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}
+
+      - run: npm install
+
+      - run: npm run build-docs
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./documentation/out

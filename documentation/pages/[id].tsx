@@ -29,6 +29,7 @@ export const getStaticProps: GetStaticProps<Props, { id: string }> = async ({
     source: await loadTsAndJs(`../hooks/${id}/ts/index.ts`),
     links: await getLinks("../hooks"),
     readme: await markdown(`../hooks/${id}/README.md`),
+    changelog: await markdown(`../hooks/${id}/CHANGELOG.md`),
   };
 
   return {
@@ -40,6 +41,7 @@ export interface Props {
   id: string;
   name: string;
   readme: string;
+  changelog: string;
   demo: {
     ts: string;
     js: string;
@@ -58,6 +60,7 @@ export default function Index({
   id,
   name,
   readme,
+  changelog,
   demo,
   source,
   links,
@@ -110,6 +113,12 @@ export default function Index({
               <Code language="js">{source.js}</Code>
             </Tab>
           </Tabs>
+        </Tab>
+        <Tab name="Changelog" theme="white">
+          <div
+            style={{ padding: "1em" }}
+            dangerouslySetInnerHTML={{ __html: changelog }}
+          />
         </Tab>
       </Tabs>
     </Layout>
