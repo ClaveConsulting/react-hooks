@@ -2,7 +2,6 @@ name: Check Pull-request
 
 on:
   - pull_request_target
-  - pull_request
 
 jobs:
   check:
@@ -28,14 +27,10 @@ jobs:
         registry-url: 'https://registry.npmjs.org'
 
     # Install npm packages
-    - run: npm ci --ignore-scripts
+    - run: npm ci
 
-    # All of this should probably be one npm script
-    - run: npm run bootstrap --ignore-scripts
-    - run: npm run ci-lint
-    - run: npm run ci-test
-    - run: npm run compile
-    - run: npm run ci-version
+    # This is what we really want to do in this whole yml file
+    - run: npm run ci-pullrequest
 
     # Look at the tags that have been generated
     - name: Get new versions
