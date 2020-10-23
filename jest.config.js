@@ -5,5 +5,5 @@ module.exports = {
   projects: ['hooks/*'],
   preset: 'ts-jest/presets/default',
   testMatch: ['**/*.test.ts'],
-  reporters: ["default", "jest-junit"]
+  reporters: ["default", "<rootDir>/ci/GithubActionJestReporter.js"]
 };
