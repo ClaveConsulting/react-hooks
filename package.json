@@ -78,10 +78,5 @@
     "@clave/use-boolean-state": "file:hooks/use-boolean-state",
     "@clave/use-debounce": "file:hooks/use-debounce",
     "@clave/use-object-state": "file:hooks/use-object-state"
-  },
-  "jest-junit": {
-    "suiteNameTemplate": "{filepath}",
-    "classNameTemplate": "{classname}",
-    "titleTemplate": "{title}"
   }
 }

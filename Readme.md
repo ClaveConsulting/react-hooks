@@ -80,10 +80,6 @@ Here are the rest of the npm scripts, in case you need them.
 
   This is run by github actions to publish new versions automatically.
 
-- `npm run ci-test`: Run by ci when a branch is pushed.
-
-  This is run by github actions to test in a branch.
-
 ### Commit messages
 
 For automatic versioning to work correctly the [angular commit convention](https://github.com/conventional-changelog/conventional-changelog/tree/master/packages/conventional-changelog-angular#angular-convention) is used. In short, your commit message should look like this:
