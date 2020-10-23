@@ -60,10 +60,6 @@ Here are the rest of the npm scripts, in case you need them.
 
   Jest is used as the testrunner, the results are output to the console. Configured in `jest.config.js`.
 
-- `npm run prepare`: Prepare for publishing.
-
-  This will clean, lint, test and compile all of the hooks.
-
 - `npm run clean-docs`: Clean the output from build-docs and watch-docs.
 
   This will clean up the output from building the docs. You probably don't need to run this.
@@ -79,6 +75,10 @@ Here are the rest of the npm scripts, in case you need them.
 - `npm run ci-publish`: Run by ci to publish the packages.
 
   This is run by github actions to publish new versions automatically.
+
+- `npm run ci-pullrequest`: Run by ci in pull-requests.
+
+  This checks the commits in the pullrequests, but doesn't publish anything.
 
 ### Commit messages
 
