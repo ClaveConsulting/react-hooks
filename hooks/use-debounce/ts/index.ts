@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 
 /**
- * Write documentation here
+ * Returns the last stable value provided
+ *
+ * @param value Value that should be debounced
+ * @param milliseconds Number of milliseconds to wait for the value to settle
+ * @returns the last stable value provided
  */
-export default function useDebounce<T>(value: T, delay: number) {
+export default function useDebounce<T>(value: T, milliseconds: number) {
   const [debouncedValue, setDebouncedValue] = useState(value);
 
   useEffect(() => {
-    const handler = setTimeout(() => setDebouncedValue(value), delay);
+    const handler = setTimeout(() => setDebouncedValue(value), milliseconds);
 
     return () => clearTimeout(handler);
 
