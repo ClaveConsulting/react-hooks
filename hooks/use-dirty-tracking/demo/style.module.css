@@ -1,0 +1,8 @@
+.demo {
+  padding: 1em;
+}
+
+.demo label {
+  display: block;
+  margin: 0.5em 0;
+}

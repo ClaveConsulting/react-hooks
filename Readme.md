@@ -26,9 +26,9 @@ There are `npm run` scripts defined in the root `package.json` file for all of y
 
   You probably only need to run this once, or if you create a new hook.
 
-- `npm run watch-docs`: Build the docs for local development.
+- `npm run watch`: Build the docs for local development.
 
-  Use this if you want to make changes to the documentation.
+  Use this if you want to make changes to the documentation. It will watch all the hooks and the documentation
 
 - `npm run compile`: First tsc then babel.
 
