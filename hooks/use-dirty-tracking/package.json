@@ -1,0 +1,26 @@
+{
+  "name": "@clave/use-dirty-tracking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js/index.js",
+  "scripts": {
+    "test": "jest",
+    "clean": "rimraf ./es ./js",
+    "lint": "eslint . --ext .ts",
+    "tsc": "tsc",
+    "babel": "babel --root-mode upward --source-maps -d js es",
+    "compile": "npm run tsc && npm run babel",
+    "prepare": "npm run clean && npm run lint && npm run test && npm run compile"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "@babel/runtime": "^7.11.2"
+  },
+  "types": "es/index.d.ts",
+  "module": "es/index.js",
+  "publishConfig": {
+    "access": "public"
+  }
+}
