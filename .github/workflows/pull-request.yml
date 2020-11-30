@@ -15,6 +15,11 @@ jobs:
         repository: ${{ github.event.pull_request.head.repo.full_name }}
         fetch-depth: 0
 
+    # The following line checks if this repository is vulnerable for using pull_request_target
+    # It will not show up in the build log until the pr is merged. Therefore it is not a problem
+    # to use pull_request_target with secrets in the build script.
+    - run: echo "This will not show up in the log until this is merged to master"
+
     # This is needed because pull-requests don't run on branches
     # so we create a new branch to work on
     - run: git switch -c "pull-request"
