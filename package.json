@@ -19,7 +19,7 @@
     "clean-docs": "cd documentation && npm run clean",
     "build-docs": "cd documentation && npm run build && npm run export",
     "ci-publish": "lerna publish --conventional-commits --create-release github --yes",
-    "ci-pullrequest": "printenv",
+    "ci-pullrequest": "npm run bootstrap && npm run ci-lint && npm run ci-test && npm run compile && npm run ci-version",
     "ci-version": "lerna version --conventional-commits --no-push --yes",
     "ci-test": "jest --ci",
     "ci-lint": "eslint . --ext .ts",
