@@ -47,6 +47,8 @@ jobs:
     # Create a comment in the pull request using the tags created
     - uses: marocchino/sticky-pull-request-comment@v1
       if: env.LERNA_VERSIONS != ''
+      env:
+        NODE_OPTIONS: ''
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         message: |
@@ -56,6 +58,8 @@ jobs:
           ```
     - uses: marocchino/sticky-pull-request-comment@v1
       if: env.LERNA_VERSIONS == ''
+      env:
+        NODE_OPTIONS: ''
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         message: |
