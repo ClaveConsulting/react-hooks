@@ -9,7 +9,7 @@ const reducers = infer<string>()({
     return state.toUpperCase();
   },
   toLowerCase(state, payload?: string){
-    return (payload ?? state).toLowerCase();
+    return (payload || state).toLowerCase();
   },
   append(state, payload: number) {
     return state + payload;
