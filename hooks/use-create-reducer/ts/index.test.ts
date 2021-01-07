@@ -1,6 +1,5 @@
 import { act, renderHook } from "@testing-library/react-hooks";
-import useCreateReducer, { createDispatcher, createReducer, Dispatcher, infer } from "./index";
-
+import useCreateReducer, { createDispatcher, createReducer, infer } from "./index";
 
 const reducers = infer<string>()({
   set(state, payload: string) {
@@ -64,8 +63,6 @@ test("createReducer has initial state", () => {
 
   expect(state).toBe('');
 });
-
-type Dispatch = Dispatcher<typeof reducers>;
 
 test("createReducer updates state", () => {
   const { result } = renderHook(() => useCreateReducer('', reducers));
