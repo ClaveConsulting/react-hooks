@@ -1,4 +1,21 @@
-import { SetStateAction, useMemo, useState } from "react";
+import { Dispatch, SetStateAction, useMemo, useState } from "react";
+
+export interface SetBooleanState extends Dispatch<SetStateAction<boolean>> {
+  /**
+   * Toggle the boolean value
+   */
+  toggle: () => void;
+
+  /**
+   * Set the boolean value to false
+   */
+  toFalse: () => void;
+
+  /**
+   * Set the boolean value to true
+   */
+  toTrue: () => void;
+}
 
 /**
  * Create a state for a boolean value with useful methods
@@ -12,7 +29,7 @@ export default function useBooleanState(
   const [state, setState] = useState<boolean>(initial);
 
   const setBooleanState = useMemo(() => {
-    const setValue = (v: SetStateAction<boolean>) => setState(v);
+    const setValue: SetBooleanState = (v: SetStateAction<boolean>) => setState(v);
 
     /**
      * Toggle the boolean value
