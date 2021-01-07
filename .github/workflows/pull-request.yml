@@ -5,6 +5,8 @@ on: pull_request_target
 jobs:
   check:
     runs-on: ubuntu-latest
+    outputs:
+      version: ${{ env.LERNA_VERSIONS }}
     steps:
 
     # Checkout all commits, so we get previous tags
@@ -44,22 +46,22 @@ jobs:
         git tag --points-at HEAD >> $GITHUB_ENV
         echo 'EOF' >> $GITHUB_ENV
 
+  comment:
+    runs-on: ubuntu-latest
+    needs: check
+    steps:
     # Create a comment in the pull request using the tags created
     - uses: marocchino/sticky-pull-request-comment@v1
-      if: env.LERNA_VERSIONS != ''
-      env:
-        NODE_OPTIONS: ''
+      if: needs.check.outputs.version != ''
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         message: |
           The following versions will be created when this pull-request is merged:
           ```
-          ${{ env.LERNA_VERSIONS }}
+          ${{ needs.check.outputs.version }}
           ```
     - uses: marocchino/sticky-pull-request-comment@v1
-      if: env.LERNA_VERSIONS == ''
-      env:
-        NODE_OPTIONS: ''
+      if: needs.check.outputs.version == ''
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         message: |
