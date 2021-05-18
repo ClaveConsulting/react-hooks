@@ -54,6 +54,16 @@ export interface SetArrayState<T> extends Dispatch<SetStateAction<T[]>> {
   editAt(index: number, edit: (old: T) => T): void;
 
   /**
+   * Edits the elements that match the filter test.
+   * The second parameter is a function that receives the existing item
+   * and returns the new item
+   *
+   * @param filter Test for which items to edit
+   * @param edit The lambda function used to edit the item
+   */
+  editWhere(filter: (value: T) => boolean, edit: (old: T) => T): void;
+
+  /**
    * Replaces the item at a position in the array with a new item
    * @param index The position in the array of the item to replace
    * @param value The new value to replace the old value with
@@ -147,6 +157,18 @@ export default function useArrayState<T>(initial: T[] | (() => T[])) {
     };
 
     /**
+     * Edits the elements that match the filter test.
+     * The second parameter is a function that receives the existing item
+     * and returns the new item
+     *
+     * @param filter Test for which items to edit
+     * @param edit The lambda function used to edit the item
+     */
+    setValue.editWhere = (filter: (value: T) => boolean, edit: (old: T) => T) => {
+      setState(editWhere(filter, edit));
+    };
+
+    /**
      * Replaces the item at a position in the array with a new item
      * @param index The position in the array of the item to replace
      * @param value The new value to replace the old value with
@@ -202,6 +224,10 @@ export function removeWhere<T>(filter: (value: T) => boolean): SetStateAction<T[
 
 export function editAt<T>(index: number, edit: (old: T) => T): SetStateAction<T[]> {
   return (existing) => existing.map((entry, i) => (i === index ? edit(entry) : entry));
+}
+
+export function editWhere<T>(filter: (value: T) => boolean, edit: (old: T) => T): SetStateAction<T[]> {
+  return (existing) => existing.map((entry) => (filter(entry) ? edit(entry) : entry));
 }
 
 export function replaceAt<T>(index: number, value: T): SetStateAction<T[]> {

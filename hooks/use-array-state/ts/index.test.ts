@@ -117,3 +117,13 @@ test("value can be edited", () => {
   [value, setValue] = result.current;
   expect(value).toEqual(["a", "B", "c"]);
 });
+
+test("value can be edited where", () => {
+  const { result } = renderHook(() => useArrayState<string>(["a", "b", "c"]));
+
+  let [value, setValue] = result.current;
+  act(() => setValue.editWhere(v => v == 'b', (v) => v.toUpperCase()));
+
+  [value, setValue] = result.current;
+  expect(value).toEqual(["a", "B", "c"]);
+});
