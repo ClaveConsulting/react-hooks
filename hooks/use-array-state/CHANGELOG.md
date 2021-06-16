@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/ClaveConsulting/react-hooks/compare/@clave/use-array-state@1.2.0...@clave/use-array-state@1.3.0) (2021-06-16)
+
+
+### Features
+
+* added exports to package.json ([a7c748f](https://github.com/ClaveConsulting/react-hooks/commit/a7c748f05d44373e190fa13add79ac9ede0dd116))
+
+
+
+
+
 # [1.2.0](https://github.com/ClaveConsulting/react-hooks/compare/@clave/use-array-state@1.1.1...@clave/use-array-state@1.2.0) (2021-05-18)
 
 
