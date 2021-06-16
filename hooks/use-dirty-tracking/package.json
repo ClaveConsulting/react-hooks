@@ -20,6 +20,10 @@
   },
   "types": "es/index.d.ts",
   "module": "es/index.js",
+  "exports": {
+    "import": "./es/index.js",
+    "require": "./js/index.js"
+  },
   "publishConfig": {
     "access": "public"
   }
